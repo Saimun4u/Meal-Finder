@@ -52,6 +52,32 @@ function searchMeal(e){
     
 }
 
+//Fetch meal by ID function
+    function getMealById(mealID){
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
+        .then(res=> res.json())
+        .then(data => {
+            const meal = data.meals[0]
+
+            addMealToDOM(meal);
+        })
+    }
+
+//Add meal to DOM
+
+function addMealToDOM(meal){
+    const ingredients = [];
+
+    for (let i=0; i <= 20; i++){
+        if (meal[`strIngredient${i}`]){
+            ingredients.push(`${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`);
+    } else {
+
+    }
+}
+
+singl
+
 //Set event listeners
 
 submit.addEventListener('submit', searchMeal);
@@ -68,7 +94,7 @@ mealsEl.addEventListener('click', e => {
     if (mealInfo){
         const mealID = mealInfo.getAttribute('data-mealid')
         console.log(mealID);
-        // getMealById(mealID);
+        getMealById(mealID);
     }
 
 })
