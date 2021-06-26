@@ -60,8 +60,14 @@ function searchMeal(e){
             const meal = data.meals[0]
 
             addMealToDOM(meal);
-        })
+        });
     }
+
+//Fetch random meal from API
+
+
+
+
 
 //Add meal to DOM
 
@@ -98,6 +104,7 @@ function addMealToDOM(meal){
 //Set event listeners
 
 submit.addEventListener('submit', searchMeal);
+random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
     const mealInfo = e.path.find(item => {
